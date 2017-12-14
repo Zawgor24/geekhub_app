@@ -1,4 +1,4 @@
 <p>First name: <%= current_user.profile.first_name %></p>
 <p>Last name: <%= current_user.profile.last_name %></p>
 <p>Age: <%= current_user.profile.age %></p>
-<p>Avatar: <%= image_tag(current_user.profile.avatar_url) %></p>
+<p>Avatar: <%= image_tag(current_user.profile.avatar_url) if current_user.profile.avatar.present? %></p>
