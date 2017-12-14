@@ -1,0 +1,35 @@
+<%= form_for current_user do |f| %>
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </p>
+
+  <%= f.fields_for :profile_attributes, current_user.profile || current_user.create_profile do |p| %>
+  <p>
+    <%= p.label :first_name %>
+    <%= p.text_field :first_name %>
+  </p>
+
+  <p>
+    <%= p.label :last_name %>
+    <%= p.text_field :last_name %>
+  </p>
+
+  <p>
+    <%= p.label :age %>
+    <%= p.number_field :age %>
+  </p>
+
+  <p>
+    <%= p.label :avatar %>
+    <%= p.file_field :avatar %>
+  </p>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>

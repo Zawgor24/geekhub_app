@@ -1,0 +1,7 @@
+<h2>User info</h2>
+
+<p>Email: <%= current_user.email %></p>
+
+<%= render 'profile' if current_user.profile.present? %>
+
+<%= link_to 'Update profile', edit_user_path(current_user) %>
