@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register AdminUser do
   before_action :authenticate_admin_user!
-  permit_params :email, :password, :password_confirmation, profile_attributes: [
-                                                            :avatar, :first_name, 
-                                                            :last_name, :age, :id
-                                                          ]
+  permit_params :email, :password, :password_confirmation, profile_attributes: %i[
+    avatar first_name
+    last_name age id
+  ]
 
   index do
     selectable_column
@@ -28,5 +30,4 @@ ActiveAdmin.register AdminUser do
     end
     f.actions
   end
-
 end

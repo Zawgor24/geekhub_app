@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ExampleMailer < ApplicationMailer
   default from: 'zawgorodskiy.2012@gmail.com'
 

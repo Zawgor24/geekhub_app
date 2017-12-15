@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users, skip: [:registrations]
 
-  resources :users, only: [:show, :edit, :update] 
+  resources :users, only: %i[show edit update]
 
   root 'users#show'
 end
