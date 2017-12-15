@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users
+  devise_for :users, skip: [:registrations]
 
-  resources :users, only: [:show, :edit, :update] do
-    resource :profile, except: [:index, :destroy]
-  end
+  resources :users, only: [:show, :edit, :update] 
 
   root 'users#show'
 end
